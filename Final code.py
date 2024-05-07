@@ -114,7 +114,7 @@ def fill_grid_visited(x, y, grid, counted, rows, cols):
     
     return count_connected_tiles(x, y, grid, visited, counted, rows, cols)
 
-def count_connected_tiles(x, y, grid, visited, counted, rows, cols):
+def count_terrain(x, y, grid, visited, counted, rows, cols):
     current_type = grid[x][y]['Type']
     visited[x][y] = True
     counted[x][y] = True  
