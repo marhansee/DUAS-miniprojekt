@@ -112,7 +112,7 @@ def fill_grid_visited(x, y, grid, counted, rows, cols):
     for _ in range(cols):
         visited.append([False] * rows)
     
-    return count_connected_tiles(x, y, grid, visited, counted, rows, cols)
+    return count_terrain(x, y, grid, visited, counted, rows, cols)
 
 def count_terrain(x, y, grid, visited, counted, rows, cols):
     current_type = grid[x][y]['Type']
@@ -126,7 +126,7 @@ def count_terrain(x, y, grid, visited, counted, rows, cols):
     for dx, dy in directions:
         new_x, new_y = x + dx, y + dy
         if 0 <= new_x < cols and 0 <= new_y < rows and not visited[new_x][new_y] and grid[new_x][new_y]['Type'] == current_type:
-            counts = count_connected_tiles(new_x, new_y, grid, visited, counted, rows, cols)
+            counts = count_terrain(new_x, new_y, grid, visited, counted, rows, cols)
             count += counts[0]
             crowns += counts[1]
     return (count, crowns)
