@@ -1,0 +1,1 @@
+This Github repo is used in our miniprojekt in the course "Design og udvikling af AI-systemer" at Aalborg University. The code provided here is used to count points in King Domino using a Random Forest Classifier and Template Matching. 
