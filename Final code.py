@@ -135,13 +135,13 @@ def calculate_points(grid, rows, cols):
     counted = []
     for _ in range(cols):
         counted.append([False] * rows)
-    # Calling the count_terrain function and calculating the total points 
+    # Calling the fill_grid_visited function and calculating the total points 
     # using connected tiles and amount of crowns. 
     sum_of_points = []
     for x in range(rows):
         for y in range(cols):
             if not counted[x][y]:  
-                connected_count = count_terrain(x, y, grid, counted, rows, cols)
+                connected_count = fill_grid_visited(x, y, grid, counted, rows, cols)
                 points_per_terrain = connected_count[0] * connected_count[1]
                 sum_of_points.append(points_per_terrain)
     return sum(sum_of_points)
@@ -160,11 +160,10 @@ def main():
     # Defining paths and calling the overall analyze_board function. Output will be points for each board in the range. 
     data_path = r"C:\Users\marti\OneDrive - Aalborg Universitet\DAKI\2. Semester\Design og udvikling af AI-systemer\Miniprojekt\CSV-filer med features\Alt data\All_data.csv"
     templates_path = [
-        r"C:\Users\marti\Desktop\Crown0.jpg",
-        r"C:\Users\marti\Desktop\Crown1.jpg", 
-        r"C:\Users\marti\Desktop\Crown2.jpg", 
-        r"C:\Users\marti\Desktop\Crown3.jpg"
-    ]
+        r"C:\Users\marti\Desktop\DUAS miniprojekt\Crown0.jpg",
+        r"C:\Users\marti\Desktop\DUAS miniprojekt\Crown1.jpg",
+        r"C:\Users\marti\Desktop\DUAS miniprojekt\Crown2.jpg",
+        r"C:\Users\marti\Desktop\DUAS miniprojekt\Crown3.jpg"]
     for i in range(1, 75):
         analyze_board(i, data_path, templates_path)
 
